@@ -335,3 +335,32 @@ app/views/posts/edit.html.erb:6: unmatched close parenthesis: /label><br>
 app/views/posts/edit.html.erb:6: syntax error, unexpected '<'
 app/views/posts/edit.html.erb:14: unterminated string meets end of file
 app/views/posts/edit.html.erb:14: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/posts/1/edit" for 206.71.250.242 at 2019-09-07 15:55:57 +0000
+Cannot render console from 206.71.250.242! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (20.2ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (private method `last_updated' called for #<Post:0x00007f3b3a108fc0>):
+    1: <%= form_for(@post) do |f| %>
+    2:   <label><%= @post.last_updated %></label><br>
+    3:   <label>Post title:</label><br>
+    4:   <%= f.text_field :title %><br>
+    5: 
+  
+app/views/posts/edit.html.erb:2:in `block in _app_views_posts_edit_html_erb__1079707322621123633_69946176995120'
+app/views/posts/edit.html.erb:1:in `_app_views_posts_edit_html_erb__1079707322621123633_69946176995120'
+  Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.9ms)
+  Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (23.4ms)
+DEPRECATION WARNING: #original_exception is deprecated. Use #cause instead. (called from block in render_exception_with_web_console at /usr/local/rvm/gems/ruby-2.6.1/gems/web-console-2.3.0/lib/web_console/extensions.rb:16)
